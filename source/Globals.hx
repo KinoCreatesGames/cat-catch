@@ -1,7 +1,7 @@
 import ldtkData.LDTkProj;
 
 class Globals {
-	public static inline var GAME_TITLE = 'Game Title';
+	public static inline var GAME_TITLE = 'Cat Catch';
 	public static inline var GAME_SAVE_SLOTS:Int = 5;
 
 	public static inline var TEXT_START = 'Start';
@@ -23,9 +23,9 @@ class Globals {
 	public static inline var CMD_TIME_SCALE = 0.015;
 
 	// Player Globals
-	public static inline var PLAYER_HEALTH_CAP = 3;
+	public static inline var PLAYER_HEALTH_CAP = 4;
 	public static inline var PLAYER_BULLET_CD:Float = 0.15;
-	public static inline var PLAYER_GAL_NAME:String = 'Koyuki';
+	public static inline var PLAYER_GAL_NAME:String = 'Lin';
 	public static var HIGH_SCORE:Int = 0;
 
 	// Font Sizes
@@ -49,10 +49,10 @@ class Globals {
 	 * Normal Size
 	 */
 	public static inline var FONT_N:Int = 12;
-	
+
 	public static var ldtkProj(get, null):LDTkProj;
 
-        public static inline function get_ldtkProj() {
-          return new LDTkProj();
-        }
+	public static inline function get_ldtkProj() {
+		return new LDTkProj();
+	}
 }

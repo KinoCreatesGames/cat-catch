@@ -1,5 +1,9 @@
 package game.states;
 
+import game.SceneUtils.gotoCredits;
+import game.SceneUtils.gotoOptions;
+import game.SceneUtils.gotoLoad;
+import game.SceneUtils.gotoFirstLevel;
 import game.ui.TextButton;
 import flixel.util.FlxAxes;
 
@@ -155,22 +159,19 @@ class TitleState extends FlxState {
 	}
 
 	public function clickStart() {
-		// var introText = DepotData.Cutscene.lines.getByFn((el) ->
-		// 	el.name == 'Intro');
-		// FlxG.switchState(new CutsceneState(new HubState(),
-		// 	introText.cutsceneText));
+		gotoFirstLevel(this);
 	}
 
 	public function clickContinue() {
-		// openSubState(new LoadSubState());
+		gotoLoad(this);
 	}
 
 	public function clickOptions() {
-		// openSubState(new OptionsSubState());
+		gotoOptions(this);
 	}
 
 	public function clickCredits() {
-		// openSubState(new CreditsSubState());
+		gotoCredits(this);
 	}
 
 	#if desktop

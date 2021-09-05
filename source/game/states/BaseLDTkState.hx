@@ -1,5 +1,6 @@
 package game.states;
 
+import game.objects.Interactable;
 import groups.CollectibleGroup;
 import flixel.group.FlxSpriteGroup;
 
@@ -14,6 +15,7 @@ class BaseLDTkState extends FlxState {
 	public var lvlGrp:FlxSpriteGroup;
 	public var decorationGrp:FlxSpriteGroup;
 	public var collectibleGrp:CollectibleGroup;
+	public var interactableGrp:FlxTypedGroup<Interactable>;
 	public var enemyGrp:FlxTypedGroup<Enemy>;
 	public var entityGrp:FlxTypedGroup<Actor>;
 	public var doorGrp:FlxSpriteGroup;
@@ -36,9 +38,12 @@ class BaseLDTkState extends FlxState {
 
 		createGroups();
 		createLevelInformation();
+		createEntities();
 		createUI();
 		addGroups();
 	}
+
+	public function createEntities() {}
 
 	/**
 		* Creates the groups that are being used on the level
@@ -57,6 +62,7 @@ class BaseLDTkState extends FlxState {
 		doorGrp = new FlxSpriteGroup();
 		entityGrp = new FlxTypedGroup<Actor>();
 		collectibleGrp = new CollectibleGroup();
+		interactableGrp = new FlxTypedGroup<Interactable>();
 	}
 
 	/**
@@ -111,6 +117,7 @@ class BaseLDTkState extends FlxState {
 		add(decorationGrp);
 		add(hazardGrp);
 		add(doorGrp);
+		add(interactableGrp);
 		add(enemyGrp);
 		add(entityGrp);
 		add(collectibleGrp);

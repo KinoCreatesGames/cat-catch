@@ -1,11 +1,26 @@
 package game.states;
 
+import game.objects.Save;
 import game.objects.Collectible;
 import game.objects.PawHeart;
 import game.objects.NipStick;
 
 class BaseGameState extends BaseLDTkState {
 	// Groups
+	override public function createEntities() {}
+
+	public function spawnPlayer() {}
+
+	public function spawnCollectibles() {}
+
+	public function spawnInteractables() {
+		lvl.l_Entities.all_Save.iter((eSave) -> {
+			interactableGrp.add(new Save(eSave.pixelX, eSave.pixelY));
+		});
+	}
+
+	public function spawnEnemies() {}
+
 	override public function processCollision() {
 		FlxG.overlap(player, collectibleGrp, playerTouchCollectible);
 
