@@ -1,9 +1,16 @@
 package game.states;
 
+import game.objects.Collectible;
+import game.objects.PawHeart;
+import game.objects.NipStick;
+
 class BaseGameState extends BaseLDTkState {
 	// Groups
 	override public function processCollision() {
 		FlxG.overlap(player, collectibleGrp, playerTouchCollectible);
+
+		// Level collision
+		FlxG.overlap(player, lvlGrp);
 	}
 
 	public function playerTouchCollectible(player:Player,
