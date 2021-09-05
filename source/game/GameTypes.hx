@@ -30,12 +30,9 @@ typedef GameState = {
 
 typedef GameSaveState = {
 	public var saveIndex:Int;
-	public var days:Int;
-	public var playerStats:ActorData;
+	// public var playerStats:ActorData;
 	public var gameTime:Float;
 	public var realTime:Float;
-	public var playerAffectionLvl:Int;
-	public var playerHappinessLvl:Int;
 }
 
 typedef GameSettingsSaveState = {
