@@ -21,7 +21,7 @@ class Player extends Actor {
 		this.invincible = false;
 		this.nipStickCount = 0;
 		this.health = HEALTH_CAP;
-		makeGraphic(32, 32, KColor.BLUE, true);
+		makeGraphic(16, 16, KColor.BLUE, true);
 	}
 
 	override public function update(elapsed:Float) {
@@ -54,12 +54,16 @@ class Player extends Actor {
 		// bound to the axis
 	}
 
+	public function addHealth(value:Int) {
+		this.health = (this.health + value).clampf(0, HEALTH_CAP);
+	}
+
 	public function addStick(amount:Int) {
 		this.nipStickCount = (this.nipStickCount + amount).clamp(0, STICK_CAP);
 	}
 
 	public function takeDamage(damage:Int) {
-		this.health = (this.health - damage).clampf(0, FlxMath.MAX_VALUE_INT);
+		this.health = (this.health - damage).clampf(0, HEALTH_CAP);
 		FlxG.camera.shake(0.05, 0.05);
 		this.invincible = true;
 		this.flicker(INVINCIBLE_TIME, 0.04, true, false, (_) -> {

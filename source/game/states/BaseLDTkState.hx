@@ -1,15 +1,19 @@
 package game.states;
 
+import groups.CollectibleGroup;
 import flixel.group.FlxSpriteGroup;
 
 class BaseLDTkState extends FlxState {
 	public var completeLevel:Bool;
 	public var gameOver:Bool;
 
+	// Singular Entities
+	public var player:Player;
 	// Groups
 	public var backgroundGrp:FlxSpriteGroup;
 	public var lvlGrp:FlxSpriteGroup;
 	public var decorationGrp:FlxSpriteGroup;
+	public var collectibleGrp:CollectibleGroup;
 	public var enemyGrp:FlxTypedGroup<Enemy>;
 	public var entityGrp:FlxTypedGroup<Actor>;
 	public var doorGrp:FlxSpriteGroup;
@@ -52,6 +56,7 @@ class BaseLDTkState extends FlxState {
 		backgroundGrp = new FlxSpriteGroup();
 		doorGrp = new FlxSpriteGroup();
 		entityGrp = new FlxTypedGroup<Actor>();
+		collectibleGrp = new CollectibleGroup();
 	}
 
 	/**
@@ -108,6 +113,7 @@ class BaseLDTkState extends FlxState {
 		add(doorGrp);
 		add(enemyGrp);
 		add(entityGrp);
+		add(collectibleGrp);
 	}
 
 	override public function update(elapsed:Float) {

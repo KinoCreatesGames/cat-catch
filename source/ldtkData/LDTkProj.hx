@@ -5,4 +5,4 @@ package ldtkData;
  * for working with the LDTK Haxe API when creating your own
  * game with LDTK tile map editor.
  */
-// private typedef _Tmp = haxe.macro.MacroType<[ldtk.Project.build('assets/maps/sprocket.ldtk')]>;
+private typedef _Tmp = haxe.macro.MacroType<[ldtk.Project.build('assets/maps/cat-catch.ldtk')]>;
