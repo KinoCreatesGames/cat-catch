@@ -8,13 +8,19 @@ class Player extends Actor {
 	public static inline var JUMP_FORCE:Float = 200;
 	public static inline var INVINCIBLE_TIME:Float = 1.5;
 
+	public static inline var STICK_CAP = 5;
+	public static inline var HEALTH_CAP = 4;
+
 	public var state:State;
 	public var invincible:Bool;
+	public var nipStickCount:Int;
 
 	public function new(x:Float, y:Float) {
 		super(x, y, null);
 		this.drag.x = 500;
 		this.invincible = false;
+		this.nipStickCount = 0;
+		this.health = HEALTH_CAP;
 		makeGraphic(32, 32, KColor.BLUE, true);
 	}
 
@@ -46,6 +52,10 @@ class Player extends Actor {
 	public function applyPhysics(elapsed:Float) {
 		acceleration.y = GRAVITY;
 		// bound to the axis
+	}
+
+	public function addStick(amount:Int) {
+		this.nipStickCount = (this.nipStickCount + amount).clamp(0, STICK_CAP);
 	}
 
 	public function takeDamage(damage:Int) {
