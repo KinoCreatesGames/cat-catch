@@ -1,5 +1,6 @@
 package game.char;
 
+import flixel.FlxObject;
 import flixel.math.FlxMath;
 
 class Player extends Actor {

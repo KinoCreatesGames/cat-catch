@@ -8,8 +8,8 @@ class SaveLoad extends FlxBasic {
 	 */
 	public var gameData:GameState;
 
-	public static inline var SAVE_SETTINGS = 'SoulSettings';
-	public static inline var SAVE_DATA_PREFIX = 'SoulData';
+	public static inline var SAVE_SETTINGS = 'CatCatchSettings';
+	public static inline var SAVE_DATA_PREFIX = 'CatCatchData';
 	public static var Save(get, null):SaveLoad;
 
 	public var TextSpeed(get, null):Float;

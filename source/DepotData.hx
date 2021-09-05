@@ -1,5 +1,5 @@
 package;
 
 // Path to your own depot file
-// @:build(buildmac.DepotMacros.buildDepotFile('assets/data/soul.dpo'))
+@:build(macros.DepotMacros.buildDepotFile('assets/data/database.dpo'))
 class DepotData {}
