@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 14,
+	"nextUid": 18,
 	"worldLayout": "Free",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -187,6 +187,52 @@
 			"pivotX": 0,
 			"pivotY": 0,
 			"fieldDefs": []
+		},
+		{
+			"identifier": "Cat",
+			"uid": 14,
+			"tags": [],
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#F6D394",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": [
+				{
+					"identifier": "name",
+					"__type": "String",
+					"uid": 15,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "NameAndValue",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				}
+			]
 		}
 	], "tilesets": [
 		{
@@ -206,7 +252,20 @@
 			"savedSelections": [],
 			"cachedPixelData": { "opaqueTiles": "11111000", "averageColors": "f336f336f225f447f447044801140448" }
 		}
-	], "enums": [], "externalEnums": [], "levelFields": [] },
+	], "enums": [], "externalEnums": [
+		{ "identifier": "Rating", "uid": 16, "values": [
+			{ "id": "Amazing", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "Good", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "Great", "tileId": null, "color": 0, "__tileSrcRect": null }
+		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "e56820bb59f9d85b234d5e1f1d6d26c3" },
+		{ "identifier": "CatType", "uid": 17, "values": [
+			{ "id": "Aggressive", "tileId": null, "color": 14560557, "__tileSrcRect": null },
+			{ "id": "EscapeArtist", "tileId": null, "color": 10257283, "__tileSrcRect": null },
+			{ "id": "Glutton", "tileId": null, "color": 12809507, "__tileSrcRect": null },
+			{ "id": "Kind", "tileId": null, "color": 15556826, "__tileSrcRect": null },
+			{ "id": "Passive", "tileId": null, "color": 11523839, "__tileSrcRect": null }
+		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "e56820bb59f9d85b234d5e1f1d6d26c3" }
+	], "levelFields": [] },
 	"levels": [
 		{
 			"identifier": "Level_0",
@@ -282,6 +341,26 @@
 							"defUid": 5,
 							"px": [288,176],
 							"fieldInstances": []
+						},
+						{
+							"__identifier": "Cat",
+							"__grid": [25,11],
+							"__pivot": [0,0],
+							"__tile": null,
+							"width": 16,
+							"height": 16,
+							"defUid": 14,
+							"px": [400,176],
+							"fieldInstances": [{
+								"__identifier": "name",
+								"__value": "Meowly",
+								"__type": "String",
+								"defUid": 15,
+								"realEditorValues": [{
+									"id": "V_String",
+									"params": ["Meowly"]
+								}]
+							}]
 						}
 					]
 				},

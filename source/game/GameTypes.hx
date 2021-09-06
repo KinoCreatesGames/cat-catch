@@ -75,3 +75,22 @@ enum Rating {
 	Great;
 	Amazing;
 }
+
+/**
+ * Different types of cats that are in the game and how
+ * they interact with the player when they are approached.
+ * 
+ * Aggressive - Immediately attacks you if you get close.
+ * Have to wear them down in order to capture them.
+ * Passive - Runs away when the character coems close to them.
+ * Kind - cats approach you without provocation.
+ * Glutton - Will run away, however will come to you if you   
+ * use bait
+ */
+enum CatType {
+	Aggressive;
+	Passive;
+	EscapeArtist;
+	Kind;
+	Glutton;
+}
