@@ -257,6 +257,97 @@
                     ]
                 }
             }
+        },
+        {
+            "name": "cats",
+            "description": "The list of cats in the game that you can find.",
+            "displayColumn": "id",
+            "guid": "4ea457a8-376e-4f4d-8427-7b5ddf977c8a",
+            "columns": [
+                {
+                    "typeStr": "text",
+                    "guid": "81a80e6f-cf84-437a-84a4-7e0ced41bcc0",
+                    "name": "name",
+                    "description": "The name of the cat in the game.",
+                    "defaultValue": "Name",
+                    "iconName": "newText",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "defaultValue": "text"
+                    }
+                },
+                {
+                    "typeStr": "int",
+                    "guid": "a0437487-a3d9-407c-92c0-658a06c8f011",
+                    "description": "Speed of the character within the game.",
+                    "name": "spd",
+                    "min": -10000,
+                    "max": 100000,
+                    "defaultValue": 40,
+                    "iconName": "newInt",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "min": "int",
+                        "max": "int",
+                        "defaultValue": "int"
+                    }
+                },
+                {
+                    "typeStr": "enum",
+                    "guid": "837b96ea-7772-41eb-8356-b43b4fad4e90",
+                    "name": "cType",
+                    "description": "The type of the cat which dictates their behavior",
+                    "options": "Passive, Aggressive, EscapeArtist, Kind, Glutton",
+                    "defaultValue": "Passive",
+                    "iconName": "newEnum",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "defaultValue": "text",
+                        "options": "text"
+                    }
+                },
+                {
+                    "typeStr": "image",
+                    "guid": "0dd8079f-fa8f-4ca7-a8df-2298a6b6099b",
+                    "name": "sprite",
+                    "description": "The sprite of the cat in the game that they will be using.",
+                    "defaultValue": "",
+                    "iconName": "newImage",
+                    "configurable": {
+                        "name": "text",
+                        "description": "text",
+                        "defaultValue": "text"
+                    }
+                }
+            ],
+            "lines": [
+                {
+                    "guid": "f25127ae-ecc2-4478-952b-46c07eb3cf50",
+                    "id": "0",
+                    "name": "Name",
+                    "spd": 40,
+                    "cType": "Passive",
+                    "sprite": ""
+                }
+            ],
+            "hidden": false,
+            "isProps": false,
+            "configurable": {
+                "name": "text",
+                "description": "text",
+                "displayColumn": "columnSelect@name",
+                "columnSelect@name@displayColumn": {
+                    "allowedTypes": [
+                        "int",
+                        "float",
+                        "text",
+                        "longtext"
+                    ]
+                }
+            }
         }
     ]
 }
