@@ -4,7 +4,7 @@ import flixel.math.FlxVelocity;
 import flixel.util.FlxPath;
 
 class Cat extends Enemy {
-	public static inline var LEASH_RANGE:Float = 400;
+	public static inline var LEASH_RANGE:Float = 250;
 	public static inline var DETECTION_RANGE:Float = 120;
 
 	public var catType:CatType;
@@ -17,6 +17,7 @@ class Cat extends Enemy {
 		this.path = new FlxPath(walkPath);
 		this.spd = 40;
 		this.range = DETECTION_RANGE;
+		this.leashRange = LEASH_RANGE;
 		this.catType = catType;
 		this.attackMode = false;
 		this.path.start(null, spd, FlxPath.LOOP_FORWARD);
@@ -74,7 +75,18 @@ class Cat extends Enemy {
 		}
 	}
 
-	public function hide(elapsed:Float) {}
+	public function hide(elapsed:Float) {
+		if (playerInLeashRange()) {
+			// Run in the opposite direction
+			var oppositePoint = player.getMidpoint().copyTo(new FlxPoint(0, 0));
+			oppositePoint.x = oppositePoint.x.negatef();
+			FlxVelocity.moveTowardsPoint(this, oppositePoint, spd);
+			updateFacingRelationToPoint(oppositePoint);
+		} else {
+			// Return to the original path position
+			returnToIdle();
+		}
+	}
 
 	public function approach(elapsed:Float) {
 		if (playerInRange()) {
