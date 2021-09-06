@@ -11,7 +11,7 @@ typedef ActorData = {
 
 typedef MonsterData = {
 	> ActorData,
-	// public var points:Int;
+	public var points:Int;
 	// public var patrol:Array<FlxPoint>;
 }
 
