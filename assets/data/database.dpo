@@ -395,6 +395,46 @@
                     "spd": 40,
                     "cType": "Passive",
                     "sprite": ""
+                },
+                {
+                    "guid": "85d1b2cb-bed9-49f8-b39e-eef5c7dfbd26",
+                    "id": "9",
+                    "name": "Bella",
+                    "spd": 40,
+                    "cType": "Kind",
+                    "sprite": ""
+                },
+                {
+                    "guid": "6504c23e-29e9-4b26-bb7f-2a41b5af288d",
+                    "id": "10",
+                    "name": "Charlie",
+                    "spd": 40,
+                    "cType": "Aggressive",
+                    "sprite": ""
+                },
+                {
+                    "guid": "23f97b04-e3c6-4af5-a989-3d57766ca8dc",
+                    "id": "11",
+                    "name": "NyaNya",
+                    "spd": 40,
+                    "cType": "Glutton",
+                    "sprite": ""
+                },
+                {
+                    "guid": "5ab81fef-d0a0-4918-a458-fdf122406b4e",
+                    "id": "12",
+                    "name": "Maou",
+                    "spd": 40,
+                    "cType": "Aggressive",
+                    "sprite": ""
+                },
+                {
+                    "guid": "85696ef2-8197-4abf-9202-d06a8b8b39be",
+                    "id": "13",
+                    "name": "FluffyKins",
+                    "spd": 40,
+                    "cType": "Glutton",
+                    "sprite": ""
                 }
             ],
             "hidden": false,
