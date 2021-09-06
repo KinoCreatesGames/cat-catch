@@ -1,5 +1,6 @@
 package game.states;
 
+import game.SceneUtils.gotoPause;
 import game.shaders.OutlineShader;
 import game.SceneUtils.gotoSave;
 import game.objects.Interactable;
@@ -29,6 +30,10 @@ class BaseGameState extends BaseLDTkState {
 	public function spawnCollectibles() {
 		lvl.l_Entities.all_Heart.iter((eHeart) -> {
 			collectibleGrp.add(new PawHeart(eHeart.pixelX, eHeart.pixelY));
+		});
+
+		lvl.l_Entities.all_Stick.iter((eStick) -> {
+			collectibleGrp.add(new NipStick(eStick.pixelX, eStick.pixelY));
 		});
 	}
 
@@ -84,8 +89,16 @@ class BaseGameState extends BaseLDTkState {
 	}
 
 	override public function processLevel(elapsed:Float) {
+		processLevelStateChange(elapsed);
 		// Interactable Updates
 		updateCurrentInteractable(elapsed);
+	}
+
+	public function processLevelStateChange(elapsed:Float) {
+		var pausePressed = FlxG.keys.anyJustPressed([P, ESCAPE]);
+		if (pausePressed) {
+			gotoPause(this);
+		}
 	}
 
 	public function updateCurrentInteractable(elapsed:Float) {
