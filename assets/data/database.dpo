@@ -327,7 +327,71 @@
                 {
                     "guid": "f25127ae-ecc2-4478-952b-46c07eb3cf50",
                     "id": "0",
-                    "name": "Name",
+                    "name": "Banjo",
+                    "spd": 40,
+                    "cType": "Passive",
+                    "sprite": ""
+                },
+                {
+                    "guid": "da20a610-8f25-438d-8694-eae78e6c35d1",
+                    "id": "1",
+                    "name": "Meownika",
+                    "spd": 40,
+                    "cType": "Passive",
+                    "sprite": ""
+                },
+                {
+                    "guid": "3cb015ee-accb-45bd-89f9-829d14e03283",
+                    "id": "2",
+                    "name": "Nezumi",
+                    "spd": 40,
+                    "cType": "Aggressive",
+                    "sprite": ""
+                },
+                {
+                    "guid": "b66d09f9-2a9d-4742-bd78-b87c30c0ba05",
+                    "id": "3",
+                    "name": "Purrkin",
+                    "spd": 40,
+                    "cType": "Glutton",
+                    "sprite": ""
+                },
+                {
+                    "guid": "06e891eb-5b4b-4470-873a-04fdf53224bd",
+                    "id": "4",
+                    "name": "Lily",
+                    "spd": 40,
+                    "cType": "Kind",
+                    "sprite": ""
+                },
+                {
+                    "guid": "f66c6ca0-e874-4582-b461-dee2dc9c5695",
+                    "id": "5",
+                    "name": "Leo",
+                    "spd": 40,
+                    "cType": "Aggressive",
+                    "sprite": ""
+                },
+                {
+                    "guid": "e26a0320-3451-4c3c-b720-eccabc7043a0",
+                    "id": "6",
+                    "name": "Jack",
+                    "spd": 40,
+                    "cType": "EscapeArtist",
+                    "sprite": ""
+                },
+                {
+                    "guid": "ca52ddf8-df93-462f-ba10-9d4dd346c012",
+                    "id": "7",
+                    "name": "Kyat",
+                    "spd": 40,
+                    "cType": "EscapeArtist",
+                    "sprite": ""
+                },
+                {
+                    "guid": "0bdba735-e553-4af6-8dc6-dcdb46b8e1f8",
+                    "id": "8",
+                    "name": "Athens",
                     "spd": 40,
                     "cType": "Passive",
                     "sprite": ""
