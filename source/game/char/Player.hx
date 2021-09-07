@@ -1,5 +1,6 @@
 package game.char;
 
+import flixel.math.FlxVector;
 import game.objects.Capsule;
 import flixel.FlxObject;
 import flixel.math.FlxMath;
@@ -9,6 +10,7 @@ class Player extends Actor {
 	public static inline var GRAVITY:Float = 300;
 	public static inline var JUMP_FORCE:Float = 200;
 	public static inline var INVINCIBLE_TIME:Float = 1.5;
+	public static inline var CAPSULE_SPEED:Float = 400;
 
 	public static inline var STICK_CAP = 5;
 	public static inline var HEALTH_CAP = 4;
@@ -26,13 +28,29 @@ class Player extends Actor {
 		this.nipStickCount = 0;
 		this.health = HEALTH_CAP;
 		this.playerCapsuleGrp = capsuleGroup;
+		FlxG.state.add(this.playerCapsuleGrp);
 		makeGraphic(16, 16, KColor.BLUE, true);
 	}
 
 	override public function update(elapsed:Float) {
 		updateMovement(elapsed);
+		updateFiring(elapsed);
 		super.update(elapsed);
 		applyPhysics(elapsed);
+	}
+
+	public function updateFiring(elapsed:Float) {
+		var fireButton = FlxG.keys.anyJustPressed([Z]);
+		// Fire projectile when the firing button is pressed
+		if (fireButton) {
+			var capsule = playerCapsuleGrp.recycle();
+			var fireVector = new FlxVector(this.velocity.x / this.velocity.x,
+				0);
+			var pos = this.getPosition();
+			capsule.setPosition(pos.x, pos.y);
+			capsule.facing = this.facing;
+			capsule.velocity.x = fireVector.x * CAPSULE_SPEED;
+		}
 	}
 
 	public function updateMovement(elapsed:Float) {
