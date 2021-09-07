@@ -1,5 +1,6 @@
 package game.char;
 
+import game.objects.Capsule;
 import flixel.FlxObject;
 import flixel.math.FlxMath;
 
@@ -15,13 +16,16 @@ class Player extends Actor {
 	public var state:State;
 	public var invincible:Bool;
 	public var nipStickCount:Int;
+	public var playerCapsuleGrp:FlxTypedGroup<Capsule>;
 
-	public function new(x:Float, y:Float) {
+	public function new(x:Float, y:Float,
+			capsuleGroup:FlxTypedGroup<Capsule>) {
 		super(x, y, null);
 		this.drag.x = 500;
 		this.invincible = false;
 		this.nipStickCount = 0;
 		this.health = HEALTH_CAP;
+		this.playerCapsuleGrp = capsuleGroup;
 		makeGraphic(16, 16, KColor.BLUE, true);
 	}
 

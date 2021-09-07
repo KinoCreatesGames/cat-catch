@@ -1,5 +1,6 @@
 package game.states;
 
+import game.objects.Capsule;
 import game.SceneUtils.gotoPause;
 import game.shaders.OutlineShader;
 import game.SceneUtils.gotoSave;
@@ -23,7 +24,9 @@ class BaseGameState extends BaseLDTkState {
 
 	public function spawnPlayer() {
 		lvl.l_Entities.all_Player.iter((ePlayer) -> {
-			entityGrp.add(new Player(ePlayer.pixelX, ePlayer.pixelY));
+			var capsuleGroup = new FlxTypedGroup<Capsule>();
+			entityGrp.add(new Player(ePlayer.pixelX, ePlayer.pixelY,
+				capsuleGroup));
 		});
 	}
 
