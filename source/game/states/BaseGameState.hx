@@ -1,5 +1,6 @@
 package game.states;
 
+import flixel.addons.display.FlxBackdrop;
 import game.objects.Capsule;
 import game.SceneUtils.gotoPause;
 import game.shaders.OutlineShader;
@@ -13,6 +14,12 @@ import game.objects.NipStick;
 class BaseGameState extends BaseLDTkState {
 	// Groups
 	public var currentInteractable:Interactable;
+
+	override function create() {
+		var bg = new FlxBackdrop(AssetPaths.cloud_bg__png);
+		add(bg);
+		super.create();
+	}
 
 	override public function createEntities() {
 		super.createEntities();
