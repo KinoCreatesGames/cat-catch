@@ -35,6 +35,8 @@ class BaseGameState extends BaseLDTkState {
 			entityGrp.add(new Player(ePlayer.pixelX, ePlayer.pixelY,
 				capsuleGroup));
 		});
+		// Add camera to follow the player in this function
+		FlxG.camera.follow(player, PLATFORMER);
 	}
 
 	public function spawnCollectibles() {
