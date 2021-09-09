@@ -1,5 +1,6 @@
 package game;
 
+import game.states.CreditsSubState;
 import game.states.LevelSelectState;
 import game.states.PlayState;
 import game.states.PauseSubState;
@@ -36,16 +37,16 @@ function gotoOptions(state:FlxState) {
 	});
 }
 
-function gotoPause(state:FlxState) {
+function gotoCredits(state:FlxState) {
 	FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
-		state.openSubState(new PauseSubState());
+		state.openSubState(new CreditsSubState());
 		FlxG.camera.fade(KColor.BLACK, 1, true);
 	});
 }
 
-function gotoCredits(state:FlxState) {
+function gotoPause(state:FlxState) {
 	FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
-		state.openSubState(new SaveSubState());
+		state.openSubState(new PauseSubState());
 		FlxG.camera.fade(KColor.BLACK, 1, true);
 	});
 }
