@@ -1,5 +1,6 @@
 package game;
 
+import game.states.LevelSelectState;
 import game.states.PlayState;
 import game.states.PauseSubState;
 import game.states.SettingsSubState;
@@ -17,6 +18,13 @@ function gotoSave(state:FlxState) {
 function gotoFirstLevel(state:FlxState) {
 	FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
 		FlxG.switchState(new PlayState());
+		FlxG.camera.fade(KColor.BLACK, 1, true);
+	});
+}
+
+function gotoLevelSelect(state:FlxState) {
+	FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
+		FlxG.switchState(new LevelSelectState());
 		FlxG.camera.fade(KColor.BLACK, 1, true);
 	});
 }
