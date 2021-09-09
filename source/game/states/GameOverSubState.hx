@@ -7,6 +7,7 @@ class GameOverSubState extends FlxSubState {
 	public var background:FlxSprite;
 	public var gameOverText:FlxText;
 	public var continueButton:TextButton;
+	public var levelSelectButton:TextButton;
 	public var toTitleButton:TextButton;
 
 	private var initialPosition:Float;
@@ -57,8 +58,13 @@ class GameOverSubState extends FlxSubState {
 
 		continueButton.hoverColor = KColor.PRETTY_PINK;
 		continueButton.clickColor = KColor.RICH_BLACK_FORGRA;
+		x += continueButton.width + padding;
+		levelSelectButton = new TextButton(cast x, cast y, 'To Level Select',
+			Globals.FONT_N, clickToLevelSelect);
+		levelSelectButton.hoverColor = KColor.PRETTY_PINK;
+		levelSelectButton.clickColor = KColor.RICH_BLACK_FORGRA;
 
-		x = background.x + (background.width - padding);
+		x += continueButton.width + padding;
 		toTitleButton = new TextButton(cast x, cast y, 'To Title',
 			Globals.FONT_N, clickToTitle);
 		toTitleButton.x -= toTitleButton.width;
@@ -66,6 +72,7 @@ class GameOverSubState extends FlxSubState {
 		toTitleButton.hoverColor = KColor.PRETTY_PINK;
 		toTitleButton.clickColor = KColor.RICH_BLACK_FORGRA;
 		add(continueButton);
+		add(levelSelectButton);
 		add(toTitleButton);
 	}
 
@@ -79,7 +86,7 @@ class GameOverSubState extends FlxSubState {
 		gameOverText.y = initialPosition + (18 * Math.sin(timeCount));
 	}
 
-	public function returnToLevelSelect() {
+	public function clickToLevelSelect() {
 		gotoLevelSelect(this);
 	}
 
