@@ -12,6 +12,11 @@ class Player extends Actor {
 	public static inline var INVINCIBLE_TIME:Float = 1.5;
 	public static inline var CAPSULE_SPEED:Float = 400;
 
+	/**
+	 * Time between each bullet, to prevent spamming
+	 */
+	public static inline var BULLET_CD:Float = 0.2;
+
 	public static inline var STICK_CAP = 5;
 	public static inline var HEALTH_CAP = 4;
 
@@ -19,6 +24,7 @@ class Player extends Actor {
 	public var invincible:Bool;
 	public var nipStickCount:Int;
 	public var playerCapsuleGrp:FlxTypedGroup<Capsule>;
+	public var bulletCD:Float = 0;
 
 	public function new(x:Float, y:Float,
 			capsuleGroup:FlxTypedGroup<Capsule>) {
@@ -27,6 +33,7 @@ class Player extends Actor {
 		this.invincible = false;
 		this.nipStickCount = 0;
 		this.health = HEALTH_CAP;
+		this.bulletCD = BULLET_CD;
 		this.playerCapsuleGrp = capsuleGroup;
 		FlxG.state.add(this.playerCapsuleGrp);
 		makeGraphic(16, 16, KColor.BLUE, true);
@@ -42,7 +49,8 @@ class Player extends Actor {
 	public function updateFiring(elapsed:Float) {
 		var fireButton = FlxG.keys.anyJustPressed([Z]);
 		// Fire projectile when the firing button is pressed
-		if (fireButton) {
+		bulletCD -= elapsed;
+		if (fireButton && bulletCD <= 0) {
 			var capsule = playerCapsuleGrp.recycle();
 			var fireVector = new FlxVector(this.velocity.x / this.velocity.x,
 				0);
@@ -50,6 +58,7 @@ class Player extends Actor {
 			capsule.setPosition(pos.x, pos.y);
 			capsule.facing = this.facing;
 			capsule.velocity.x = fireVector.x * CAPSULE_SPEED;
+			bulletCD = BULLET_CD;
 		}
 	}
 
