@@ -16,8 +16,6 @@ class BaseGameState extends BaseLDTkState {
 	public var currentInteractable:Interactable;
 
 	override function create() {
-		var bg = new FlxBackdrop(AssetPaths.cloud_bg__png);
-		add(bg);
 		super.create();
 	}
 
@@ -29,11 +27,15 @@ class BaseGameState extends BaseLDTkState {
 		spawnEnemies();
 	}
 
+	override public function createLevelInformation() {
+		createLevelMap();
+	}
+
 	public function spawnPlayer() {
 		lvl.l_Entities.all_Player.iter((ePlayer) -> {
-			var capsuleGroup = new FlxTypedGroup<Capsule>();
-			entityGrp.add(new Player(ePlayer.pixelX, ePlayer.pixelY,
-				capsuleGroup));
+			var capsuleGroup = new FlxTypedGroup<Capsule>(50);
+			player = new Player(ePlayer.pixelX, ePlayer.pixelY, capsuleGroup);
+			entityGrp.add(player);
 		});
 		// Add camera to follow the player in this function
 		FlxG.camera.follow(player, PLATFORMER);
@@ -65,7 +67,8 @@ class BaseGameState extends BaseLDTkState {
 			currentInteractable = null;
 		}
 		// Level collision
-		FlxG.overlap(player, lvlGrp);
+		FlxG.collide(player, lvlGrp);
+		FlxG.worldBounds.set();
 	}
 
 	public function playerTouchCollectible(player:Player,

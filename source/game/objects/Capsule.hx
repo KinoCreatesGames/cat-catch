@@ -7,6 +7,11 @@ class Capsule extends FlxSprite {
 
 	public var capsuleTimer:Float = 0.5;
 
+	public function new(x:Float = 0, y:Float = 0) {
+		super(x, y);
+		loadGraphic(AssetPaths.cat_capsule__png);
+	}
+
 	override public function update(elapsed) {
 		super.update(elapsed);
 		capsuleTimer -= elapsed;

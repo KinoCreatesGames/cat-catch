@@ -14,7 +14,7 @@ class SaveSubState extends FileSubState {
 		mouseCursor = new FlxSprite(8, 8);
 		mouseCursor.loadGraphic(AssetPaths.mouse_cursor__png, false, 8, 8,
 			true);
-		mouseCursor.animation.add('moving', [0], null, true);
+		mouseCursor.animation.add('moving', [0], 0, true);
 		FlxG.mouse.visible = false;
 		add(mouseCursor);
 	}

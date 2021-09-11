@@ -1,7 +1,7 @@
 package game.objects;
 
 class Collectible extends FlxSprite {
-	public static inline var VARIANCE:Float = 4.0;
+	public static inline var VARIANCE:Float = 2.0;
 
 	public var elapsedTime:Float;
 	public var initialY:Float;
@@ -9,6 +9,7 @@ class Collectible extends FlxSprite {
 	public function new(x:Float, y:Float) {
 		super(x, y);
 		this.initialY = y;
+		this.elapsedTime = 0;
 		setSprite();
 	}
 

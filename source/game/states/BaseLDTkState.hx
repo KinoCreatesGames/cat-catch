@@ -93,6 +93,12 @@ class BaseLDTkState extends FlxState {
 	 */
 	public function createLevelLayer() {
 		lvl.l_Level.render(lvlGrp);
+		lvl.l_AutoTiles.render(lvlGrp);
+		lvlGrp.members.iter((tile) -> {
+			var gridSize = lvl.l_AutoTiles.gridSize;
+			tile.width = gridSize;
+			tile.height = gridSize;
+		});
 		lvlGrp.solid = true;
 		lvlGrp.immovable = true;
 	}

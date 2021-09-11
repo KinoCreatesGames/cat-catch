@@ -7,7 +7,7 @@ import flixel.math.FlxMath;
 
 class Player extends Actor {
 	public static inline var MOVE_SPEED:Int = 200;
-	public static inline var GRAVITY:Float = 300;
+	public static inline var GRAVITY:Float = 500;
 	public static inline var JUMP_FORCE:Float = 200;
 	public static inline var INVINCIBLE_TIME:Float = 1.5;
 	public static inline var CAPSULE_SPEED:Float = 400;
@@ -35,8 +35,17 @@ class Player extends Actor {
 		this.health = HEALTH_CAP;
 		this.bulletCD = BULLET_CD;
 		this.playerCapsuleGrp = capsuleGroup;
+		setupBullets();
 		FlxG.state.add(this.playerCapsuleGrp);
 		makeGraphic(16, 16, KColor.BLUE, true);
+	}
+
+	public function setupBullets() {
+		for (i in 0...playerCapsuleGrp.maxSize) {
+			var capsule = new Capsule();
+			capsule.kill();
+			playerCapsuleGrp.add(capsule);
+		}
 	}
 
 	override public function update(elapsed:Float) {
