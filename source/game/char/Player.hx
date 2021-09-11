@@ -25,6 +25,7 @@ class Player extends Actor {
 	public var nipStickCount:Int;
 	public var playerCapsuleGrp:FlxTypedGroup<Capsule>;
 	public var bulletCD:Float = 0;
+	public var impactSound:FlxSound;
 
 	public function new(x:Float, y:Float,
 			capsuleGroup:FlxTypedGroup<Capsule>) {
@@ -35,6 +36,7 @@ class Player extends Actor {
 		this.health = HEALTH_CAP;
 		this.bulletCD = BULLET_CD;
 		this.playerCapsuleGrp = capsuleGroup;
+		this.impactSound = FlxG.sound.load(AssetPaths.impact__wav);
 		setupBullets();
 		FlxG.state.add(this.playerCapsuleGrp);
 		makeGraphic(16, 16, KColor.BLUE, true);
@@ -105,6 +107,7 @@ class Player extends Actor {
 
 	public function takeDamage(damage:Int) {
 		this.health = (this.health - damage).clampf(0, HEALTH_CAP);
+		this.impactSound.play();
 		FlxG.camera.shake(0.05, 0.05);
 		this.invincible = true;
 		this.flicker(INVINCIBLE_TIME, 0.04, true, false, (_) -> {
