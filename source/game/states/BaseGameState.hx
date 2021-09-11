@@ -90,8 +90,10 @@ class BaseGameState extends BaseLDTkState {
 			interactable:Interactable) {
 		var interactableType = Type.getClass(interactable);
 		// Set up the interactable and update the shader
-		currentInteractable = interactable;
-		currentInteractable.shader = new OutlineShader();
+		if (currentInteractable == null) {
+			currentInteractable = interactable;
+			currentInteractable.shader = new OutlineShader();
+		}
 		switch (interactableType) {
 			case Save:
 				var actionButton = FlxG.keys.anyJustPressed([Z]);

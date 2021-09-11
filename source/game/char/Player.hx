@@ -7,8 +7,8 @@ import flixel.math.FlxMath;
 
 class Player extends Actor {
 	public static inline var MOVE_SPEED:Int = 200;
-	public static inline var GRAVITY:Float = 500;
-	public static inline var JUMP_FORCE:Float = 200;
+	public static inline var GRAVITY:Float = 900;
+	public static inline var JUMP_FORCE:Float = 500;
 	public static inline var INVINCIBLE_TIME:Float = 1.5;
 	public static inline var CAPSULE_SPEED:Float = 400;
 
