@@ -22,6 +22,7 @@ class PauseSubState extends FlxSubState {
 		pauseText.y -= 30;
 		pauseText.scrollFactor.set(0, 0);
 		initialPosition = pauseText.y;
+		this.timeCount = 0;
 		add(pauseText);
 		var resumeButton = new TextButton(0, 0, 'Resume', Globals.FONT_N,
 			resumeGame);
