@@ -20,6 +20,7 @@ class BaseLDTkState extends FlxState {
 	public var entityGrp:FlxTypedGroup<Actor>;
 	public var doorGrp:FlxSpriteGroup;
 	public var hazardGrp:FlxSpriteGroup;
+	public var HUD:FlxSpriteGroup;
 
 	public var project:ldtkData.LDTkProj;
 	public var lvl:ldtkData.LDTkProj.LDTkProj_Level;
@@ -127,6 +128,7 @@ class BaseLDTkState extends FlxState {
 		add(enemyGrp);
 		add(entityGrp);
 		add(collectibleGrp);
+		add(HUD);
 	}
 
 	override public function update(elapsed:Float) {

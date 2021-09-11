@@ -8,9 +8,13 @@ class HUD extends FlxSpriteGroup {
 	public var stickIcon:FlxSprite;
 	public var stickCountText:GText;
 	public var catCountText:GText;
+	public var position:FlxPoint;
 
-	public function new() {
+	public function new(x:Float, y:Float, player:Player) {
 		super();
+		this.player = player;
+		position = new FlxPoint(x, y);
+		create();
 	}
 
 	// Creation function for holding all of the different UI elements in the game
@@ -21,7 +25,9 @@ class HUD extends FlxSpriteGroup {
 		createInventoryCount();
 	}
 
-	public function createHealth() {}
+	public function createHealth() {
+		var text = new FlxText(30, 30, -1, 'Hello World', 12);
+	}
 
 	/**
 	 * Cat Count which will be received from the 
@@ -29,6 +35,7 @@ class HUD extends FlxSpriteGroup {
 	 */
 	public function createCatCount() {
 		catCountText = new GText();
+		add(catCountText);
 	}
 
 	public function createTimer() {}
@@ -38,8 +45,13 @@ class HUD extends FlxSpriteGroup {
 		var padding = 16;
 		var verticalPadding = 8;
 		var spacing = 4;
-		stickIcon = new FlxSprite(width - padding, verticalPadding);
+		stickIcon = new FlxSprite();
+		stickIcon.loadGraphic(AssetPaths.nipstick__png, false, 8, 8, true);
+		stickIcon.scrollFactor.set(0, 0);
+		stickIcon.x = width - padding;
+		stickIcon.y = verticalPadding;
 		stickCountText = new GText();
+		stickCountText.scrollFactor.set(0, 0);
 		stickCountText.text = '${player.nipStickCount}';
 		stickCountText.x = ((stickIcon.x - spacing) - stickCountText.width);
 		add(stickIcon);

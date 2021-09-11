@@ -1,5 +1,6 @@
 package game.states;
 
+import game.ui.HUD;
 import flixel.addons.display.FlxBackdrop;
 import game.objects.Capsule;
 import game.SceneUtils.gotoPause;
@@ -29,6 +30,10 @@ class BaseGameState extends BaseLDTkState {
 
 	override public function createLevelInformation() {
 		createLevelMap();
+	}
+
+	override public function createUI() {
+		HUD = new HUD(0, 0, player);
 	}
 
 	public function spawnPlayer() {
