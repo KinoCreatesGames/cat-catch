@@ -15,6 +15,7 @@ class PauseSubState extends FlxSubState {
 
 	override public function create() {
 		pauseExitSound = FlxG.sound.load(AssetPaths.pause_out__wav);
+		var spacing = 20;
 		FlxG.mouse.visible = true;
 		pauseText = new FlxText(0, 0, -1, 'Pause', Globals.FONT_L);
 		pauseText.screenCenter();
@@ -26,14 +27,14 @@ class PauseSubState extends FlxSubState {
 			resumeGame);
 		resumeButton.scrollFactor.set(0, 0);
 		resumeButton.screenCenter();
-		resumeButton.y += 40;
+		resumeButton.y += spacing;
 		resumeButton.hoverColor = KColor.BURGUNDY;
 		resumeButton.clickColor = KColor.BURGUNDY;
 		var returnToTitleButton = new TextButton(0, 0, 'To Title',
 			Globals.FONT_N, toTitle);
 		returnToTitleButton.scrollFactor.set(0, 0);
 		returnToTitleButton.screenCenter();
-		returnToTitleButton.y += 80;
+		returnToTitleButton.y = resumeButton.y + spacing;
 		returnToTitleButton.hoverColor = KColor.BURGUNDY;
 		returnToTitleButton.clickColor = KColor.BURGUNDY;
 		add(resumeButton);
@@ -48,7 +49,7 @@ class PauseSubState extends FlxSubState {
 
 	public function updatePausePosition(elapsed:Float) {
 		timeCount += elapsed;
-		pauseText.y = initialPosition + (30 * Math.sin(timeCount));
+		pauseText.y = initialPosition + (15 * Math.sin(timeCount));
 		if (timeCount > 30) {
 			timeCount = 0;
 		}
