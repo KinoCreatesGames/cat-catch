@@ -15,9 +15,11 @@ import game.objects.NipStick;
 class BaseGameState extends BaseLDTkState {
 	// Groups
 	public var currentInteractable:Interactable;
+	public var pauseInSound:FlxSound;
 
 	override function create() {
 		super.create();
+		pauseInSound = FlxG.sound.load(AssetPaths.pause_in__wav);
 	}
 
 	override public function createEntities() {
@@ -119,6 +121,7 @@ class BaseGameState extends BaseLDTkState {
 	public function processLevelStateChange(elapsed:Float) {
 		var pausePressed = FlxG.keys.anyJustPressed([P, ESCAPE]);
 		if (pausePressed) {
+			pauseInSound.play();
 			gotoPause(this);
 		}
 	}

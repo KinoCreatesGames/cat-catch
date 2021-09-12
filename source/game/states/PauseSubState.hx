@@ -45,7 +45,15 @@ class PauseSubState extends FlxSubState {
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
+		processButtons(elapsed);
 		updatePausePosition(elapsed);
+	}
+
+	public function processButtons(elapsed:Float) {
+		var pausePressed = FlxG.keys.anyJustPressed([P, ESCAPE]);
+		if (pausePressed) {
+			resumeGame();
+		}
 	}
 
 	public function updatePausePosition(elapsed:Float) {

@@ -8,7 +8,7 @@ import flixel.math.FlxMath;
 class Player extends Actor {
 	public static inline var MOVE_SPEED:Int = 200;
 	public static inline var GRAVITY:Float = 900;
-	public static inline var JUMP_FORCE:Float = 500;
+	public static inline var JUMP_FORCE:Float = 250;
 	public static inline var INVINCIBLE_TIME:Float = 1.5;
 	public static inline var CAPSULE_SPEED:Float = 400;
 
@@ -31,7 +31,7 @@ class Player extends Actor {
 	public function new(x:Float, y:Float,
 			capsuleGroup:FlxTypedGroup<Capsule>) {
 		super(x, y, null);
-		this.drag.x = 500;
+		this.drag.x = 1000;
 		this.invincible = false;
 		this.nipStickCount = 0;
 		this.health = HEALTH_CAP;
@@ -54,6 +54,15 @@ class Player extends Actor {
 		animation.add('jump', [10, 11, 12], frameRate, false);
 		animation.add('fall', [13], frameRate, true);
 		animation.add('touch_ground', [14, 15], frameRate, false);
+
+		animation.finishCallback = (animName:String) -> {
+			switch (animName) {
+				case 'jump':
+					animation.play('fall');
+				case _:
+					// Do nothing
+			}
+		}
 	}
 
 	public function setupBullets() {
@@ -113,6 +122,13 @@ class Player extends Actor {
 					this.jumping = true;
 					animation.play('jump');
 				}
+			}
+		} else {
+			if (this.jumping == false && this.velocity.x == 0) {
+				animation.play('idle');
+			}
+			if (this.jumping == false && !this.isTouching(FlxObject.FLOOR)) {
+				animation.play('fall');
 			}
 		}
 	}
