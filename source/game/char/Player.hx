@@ -26,6 +26,7 @@ class Player extends Actor {
 	public var playerCapsuleGrp:FlxTypedGroup<Capsule>;
 	public var bulletCD:Float = 0;
 	public var impactSound:FlxSound;
+	public var jumping:Bool;
 
 	public function new(x:Float, y:Float,
 			capsuleGroup:FlxTypedGroup<Capsule>) {
@@ -37,9 +38,22 @@ class Player extends Actor {
 		this.bulletCD = BULLET_CD;
 		this.playerCapsuleGrp = capsuleGroup;
 		this.impactSound = FlxG.sound.load(AssetPaths.impact__wav);
+		this.jumping = false;
+		setFacingFlip(FlxObject.RIGHT, true, false);
+		setFacingFlip(FlxObject.LEFT, false, false);
 		setupBullets();
 		FlxG.state.add(this.playerCapsuleGrp);
-		makeGraphic(16, 16, KColor.BLUE, true);
+		loadGraphic(AssetPaths.Lin__png, true, 18, 18, true);
+		setupAnimations();
+	}
+
+	public function setupAnimations() {
+		var frameRate = 6;
+		animation.add('idle', [0, 1, 2, 3, 4, 5], frameRate, true);
+		animation.add('run', [6, 7, 8, 9], frameRate, true);
+		animation.add('jump', [10, 11, 12], frameRate, false);
+		animation.add('fall', [13], frameRate, true);
+		animation.add('touch_ground', [14, 15], frameRate, false);
 	}
 
 	public function setupBullets() {
@@ -78,15 +92,26 @@ class Player extends Actor {
 		var right = FlxG.keys.anyPressed([D, RIGHT]);
 		var up = FlxG.keys.anyJustPressed([W, UP]);
 
+		if (this.isTouching(FlxObject.FLOOR)) {
+			this.jumping = false;
+		}
+
 		if ((left || right || up)) {
 			if (left) {
 				velocity.x = -MOVE_SPEED;
+				facing = FlxObject.LEFT;
 			} else if (right) {
 				velocity.x = MOVE_SPEED;
+				facing = FlxObject.RIGHT;
+			}
+			if (this.jumping == false && this.velocity.x != 0) {
+				animation.play('run');
 			}
 			if (up) {
 				if (this.isTouching(FlxObject.FLOOR)) {
 					velocity.y -= JUMP_FORCE;
+					this.jumping = true;
+					animation.play('jump');
 				}
 			}
 		}
