@@ -16,10 +16,16 @@ class BaseGameState extends BaseLDTkState {
 	// Groups
 	public var currentInteractable:Interactable;
 	public var pauseInSound:FlxSound;
+	public var collectSound:FlxSound;
+	public var gameMusic:FlxSound;
 
 	override function create() {
 		super.create();
 		pauseInSound = FlxG.sound.load(AssetPaths.pause_in__wav);
+		collectSound = FlxG.sound.load(AssetPaths.collect_sound__wav);
+		// Play Game Music on the start of the level and stop previous music
+		// TODO: Add in checks to make sure audio works well on all scenes
+		FlxG.sound.playMusic(AssetPaths.JDSherbert_Retrocadia__wav);
 	}
 
 	override public function createEntities() {
@@ -85,9 +91,11 @@ class BaseGameState extends BaseLDTkState {
 			case PawHeart:
 				player.addHealth(1);
 				collectible.kill();
+				collectSound.play();
 			case NipStick:
 				player.addStick(1);
 				collectible.kill();
+				collectSound.play();
 			case _:
 				// Do nothing
 		}

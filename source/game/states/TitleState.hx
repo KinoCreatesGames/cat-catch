@@ -27,6 +27,7 @@ class TitleState extends FlxState {
 		bgColor = KColor.RICH_BLACK_FORGRA;
 		// Create Title Text
 		var text = new FlxText(0, 0, -1, Globals.GAME_TITLE, 32);
+		FlxG.sound.playMusic(AssetPaths.JDSherbert_DigitalWaves__wav);
 		add(text);
 		text.alignment = CENTER;
 		text.screenCenter();
