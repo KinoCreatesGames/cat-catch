@@ -70,7 +70,15 @@ class BaseGameState extends BaseLDTkState {
 		});
 	}
 
-	public function spawnEnemies() {}
+	public function spawnEnemies() {
+		lvl.l_Entities.all_Cat.iter((eCat) -> {
+			// TODO: Add in the pathing for the cat so that we can
+			// work out their pathing algorithm in the code base
+			// Also add in the cat type into the LDTk file so that we can add the behaviour
+			// var path = eCat.;
+			enemyGrp.add(new Cat(eCat.pixelX, eCat.pixelX,, eCat.catType));
+		});
+	}
 
 	override public function processCollision() {
 		FlxG.overlap(player, collectibleGrp, playerTouchCollectible);
