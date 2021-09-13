@@ -71,12 +71,18 @@ class BaseGameState extends BaseLDTkState {
 	}
 
 	public function spawnEnemies() {
+		var gridSize = lvl.l_Entities.gridSize;
 		lvl.l_Entities.all_Cat.iter((eCat) -> {
-			// TODO: Add in the pathing for the cat so that we can
-			// work out their pathing algorithm in the code base
-			// Also add in the cat type into the LDTk file so that we can add the behaviour
-			// var path = eCat.;
-			enemyGrp.add(new Cat(eCat.pixelX, eCat.pixelX,, eCat.catType));
+			// Get information directly from the database
+			var catData:CatData = DepotData.Cats.lines.getByFn((depotCat) ->
+				depotCat.name.toLowerCase() == eCat.f_name.toLowerCase());
+			var catType = CatType.createByName(catData.cType);
+			var path = eCat.f_Path.map((lPoint) ->
+				new FlxPoint(lPoint.cx * gridSize, lPoint.cy * gridSize));
+			var createdCat = new Cat(eCat.pixelX, eCat.pixelX, path, catType);
+			createdCat.spd = catData.spd;
+			createdCat.name = catData.name;
+			enemyGrp.add(createdCat);
 		});
 	}
 

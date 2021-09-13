@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 33,
+	"nextUid": 34,
 	"worldLayout": "Free",
 	"worldGridWidth": 256,
 	"worldGridHeight": 256,
@@ -472,6 +472,26 @@
 					"acceptFileTypes": null,
 					"defaultOverride": null,
 					"textLanguageMode": null
+				},
+				{
+					"identifier": "Path",
+					"__type": "Array<Point>",
+					"uid": 33,
+					"type": "F_Point",
+					"isArray": true,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "PointPathLoop",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": true,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
 				}
 			]
 		}
@@ -538,14 +558,14 @@
 			{ "id": "Amazing", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Good", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Great", "tileId": null, "color": 0, "__tileSrcRect": null }
-		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "e56820bb59f9d85b234d5e1f1d6d26c3" },
+		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "79eb3011f845a410d3609a0d11257366" },
 		{ "identifier": "CatType", "uid": 17, "values": [
 			{ "id": "Aggressive", "tileId": null, "color": 14560557, "__tileSrcRect": null },
 			{ "id": "EscapeArtist", "tileId": null, "color": 10257283, "__tileSrcRect": null },
 			{ "id": "Glutton", "tileId": null, "color": 12809507, "__tileSrcRect": null },
 			{ "id": "Kind", "tileId": null, "color": 15556826, "__tileSrcRect": null },
 			{ "id": "Passive", "tileId": null, "color": 11523839, "__tileSrcRect": null }
-		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "e56820bb59f9d85b234d5e1f1d6d26c3" }
+		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "79eb3011f845a410d3609a0d11257366" }
 	], "levelFields": [] },
 	"levels": [
 		{
@@ -633,6 +653,41 @@
 							"defUid": 5,
 							"px": [192,112],
 							"fieldInstances": []
+						},
+						{
+							"__identifier": "Cat",
+							"__grid": [13,7],
+							"__pivot": [0,0],
+							"__tile": null,
+							"width": 16,
+							"height": 16,
+							"defUid": 14,
+							"px": [208,112],
+							"fieldInstances": [
+								{
+									"__identifier": "name",
+									"__value": "Kyat",
+									"__type": "String",
+									"defUid": 15,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Kyat"]
+									}]
+								},
+								{
+									"__identifier": "Path",
+									"__value": [ { "cx": 9, "cy": 7 }, { "cx": 13, "cy": 7 } ],
+									"__type": "Array<Point>",
+									"defUid": 33,
+									"realEditorValues": [ {
+										"id": "V_String",
+										"params": ["9,7"]
+									}, {
+										"id": "V_String",
+										"params": ["13,7"]
+									} ]
+								}
+							]
 						}
 					]
 				},

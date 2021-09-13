@@ -15,6 +15,17 @@ typedef MonsterData = {
 	// public var patrol:Array<FlxPoint>;
 }
 
+/**
+ * Cat information from the depot data structure
+ */
+typedef CatData = {
+	id:String,
+	name:String,
+	spd:Int,
+	cType:String,
+	sprite:String
+}
+
 typedef SceneText = {
 	public var text:String;
 
