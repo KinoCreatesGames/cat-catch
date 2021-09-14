@@ -44,6 +44,9 @@ class Player extends Actor {
 		setupBullets();
 		FlxG.state.add(this.playerCapsuleGrp);
 		loadGraphic(AssetPaths.Lin__png, true, 18, 18, true);
+		this.width = 12;
+		this.offset.set(2, 0);
+		// this.updateHitbox();
 		setupAnimations();
 	}
 
