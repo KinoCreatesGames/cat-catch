@@ -6,6 +6,8 @@ import flixel.util.FlxPath;
 class Cat extends Enemy {
 	public static inline var LEASH_RANGE:Float = 250;
 	public static inline var DETECTION_RANGE:Float = 120;
+	public static inline var GRAVITY:Float = 900;
+	public static inline var JUMP_FORCE:Float = 250;
 
 	public var catType:CatType;
 
@@ -23,6 +25,16 @@ class Cat extends Enemy {
 		this.path.autoCenter = false;
 		this.path.start(null, spd, FlxPath.LOOP_FORWARD);
 		makeGraphic(16, 16, KColor.WINTER_SKY);
+	}
+
+	override public function update(elapsed:Float) {
+		super.update(elapsed);
+		applyPhysics(elapsed);
+	}
+
+	public function applyPhysics(elapsed:Float) {
+		acceleration.y = GRAVITY;
+		// bound to the axis
 	}
 
 	override public function idle(elapsed:Float) {

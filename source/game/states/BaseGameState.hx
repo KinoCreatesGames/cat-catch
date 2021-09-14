@@ -81,7 +81,7 @@ class BaseGameState extends BaseLDTkState {
 			var path = eCat.f_Path.map((lPoint) ->
 				new FlxPoint(lPoint.cx * gridSize, lPoint.cy * gridSize));
 			trace(path);
-			var createdCat = new Cat(eCat.pixelX, eCat.pixelX, path, catType);
+			var createdCat = new Cat(eCat.pixelX, eCat.pixelY, path, catType);
 			createdCat.spd = catData.spd;
 			createdCat.name = catData.name;
 			enemyGrp.add(createdCat);

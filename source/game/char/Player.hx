@@ -90,6 +90,7 @@ class Player extends Actor {
 				0);
 			var pos = this.getPosition();
 			capsule.setPosition(pos.x, pos.y);
+			capsule.capsuleTimer = Capsule.CAPSULE_TIME;
 			capsule.facing = this.facing;
 			capsule.velocity.x = fireVector.x * CAPSULE_SPEED;
 			bulletCD = BULLET_CD;
