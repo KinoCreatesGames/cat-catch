@@ -147,12 +147,14 @@ class Player extends Actor {
 	}
 
 	public function takeDamage(damage:Int) {
-		this.health = (this.health - damage).clampf(0, HEALTH_CAP);
-		this.impactSound.play();
-		FlxG.camera.shake(0.05, 0.05);
-		this.invincible = true;
-		this.flicker(INVINCIBLE_TIME, 0.04, true, false, (_) -> {
-			this.invincible = false;
-		});
+		if (this.invincible == false) {
+			this.health = (this.health - damage).clampf(0, HEALTH_CAP);
+			this.impactSound.play();
+			FlxG.camera.shake(0.05, 0.05);
+			this.invincible = true;
+			this.flicker(INVINCIBLE_TIME, 0.04, true, false, (_) -> {
+				this.invincible = false;
+			});
+		}
 	}
 }

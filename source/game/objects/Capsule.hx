@@ -9,11 +9,13 @@ class Capsule extends FlxSprite {
 
 	public function new(x:Float = 0, y:Float = 0) {
 		super(x, y);
+		this.angle = 0;
 		loadGraphic(AssetPaths.cat_capsule__png);
 	}
 
 	override public function update(elapsed) {
 		super.update(elapsed);
+		this.angle += elapsed;
 		capsuleTimer -= elapsed;
 		if (capsuleTimer < 0) {
 			this.kill();

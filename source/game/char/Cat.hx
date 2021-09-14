@@ -20,6 +20,7 @@ class Cat extends Enemy {
 		this.leashRange = LEASH_RANGE;
 		this.catType = catType;
 		this.attackMode = false;
+		this.path.autoCenter = false;
 		this.path.start(null, spd, FlxPath.LOOP_FORWARD);
 		makeGraphic(16, 16, KColor.WINTER_SKY);
 	}

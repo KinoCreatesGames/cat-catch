@@ -19,8 +19,12 @@ class Enemy extends game.char.Actor {
 	public function new(x:Float, y:Float, path:Array<FlxPoint>,
 			monsterData:MonsterData) {
 		super(x, y, monsterData);
-		walkPath = path;
-		points = monsterData.points;
+		if (path != null) {
+			walkPath = path;
+		}
+		if (monsterData != null) {
+			points = monsterData.points;
+		}
 	}
 
 	override public function update(elapsed:Float) {
