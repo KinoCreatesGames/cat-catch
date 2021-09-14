@@ -1,5 +1,6 @@
 package game.states;
 
+import game.objects.CatCapAnim;
 import game.ui.HUD;
 import flixel.addons.display.FlxBackdrop;
 import game.objects.Capsule;
@@ -88,6 +89,8 @@ class BaseGameState extends BaseLDTkState {
 
 	override public function processCollision() {
 		FlxG.overlap(player, collectibleGrp, playerTouchCollectible);
+		FlxG.overlap(player, enemyGrp, playerTouchEnemy);
+		FlxG.overlap(enemyGrp, player.playerCapsuleGrp, enemyTouchCapsule);
 		var interactableOverlapped = FlxG.overlap(player, interactableGrp,
 			playerTouchInteractable);
 		if (!interactableOverlapped) {
@@ -95,6 +98,7 @@ class BaseGameState extends BaseLDTkState {
 		}
 		// Level collision
 		FlxG.collide(player, lvlGrp);
+		FlxG.collide(enemyGrp, lvlGrp);
 		FlxG.worldBounds.set();
 	}
 
@@ -110,6 +114,24 @@ class BaseGameState extends BaseLDTkState {
 				player.addStick(1);
 				collectible.kill();
 				collectSound.play();
+			case _:
+				// Do nothing
+		}
+	}
+
+	public function playerTouchEnemy(player:Player, enemy:Enemy) {
+		// Player takes damage when they get touched and triggers sfx
+		player.takeDamage(1);
+	}
+
+	public function enemyTouchCapsule(enemy:Enemy, capsule:Capsule) {
+		var enemyType = Type.getClass(enemy);
+		switch (enemyType) {
+			case Cat:
+				// Capture cat when it touches them
+				enemy.kill();
+				var anim = new CatCapAnim(enemy.x, enemy.y);
+				add(anim);
 			case _:
 				// Do nothing
 		}

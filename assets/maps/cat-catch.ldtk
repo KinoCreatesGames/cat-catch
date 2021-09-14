@@ -558,14 +558,14 @@
 			{ "id": "Amazing", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Good", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Great", "tileId": null, "color": 0, "__tileSrcRect": null }
-		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "79eb3011f845a410d3609a0d11257366" },
+		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "7b0cb276fe1f7ecfdf3e6a5efb3a246a" },
 		{ "identifier": "CatType", "uid": 17, "values": [
 			{ "id": "Aggressive", "tileId": null, "color": 14560557, "__tileSrcRect": null },
 			{ "id": "EscapeArtist", "tileId": null, "color": 10257283, "__tileSrcRect": null },
 			{ "id": "Glutton", "tileId": null, "color": 12809507, "__tileSrcRect": null },
 			{ "id": "Kind", "tileId": null, "color": 15556826, "__tileSrcRect": null },
 			{ "id": "Passive", "tileId": null, "color": 11523839, "__tileSrcRect": null }
-		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "79eb3011f845a410d3609a0d11257366" }
+		], "iconTilesetUid": null, "externalRelPath": "../../source/game/GameTypes.hx", "externalFileChecksum": "7b0cb276fe1f7ecfdf3e6a5efb3a246a" }
 	], "levelFields": [] },
 	"levels": [
 		{
@@ -656,13 +656,13 @@
 						},
 						{
 							"__identifier": "Cat",
-							"__grid": [13,7],
+							"__grid": [14,7],
 							"__pivot": [0,0],
 							"__tile": null,
 							"width": 16,
 							"height": 16,
 							"defUid": 14,
-							"px": [208,112],
+							"px": [224,112],
 							"fieldInstances": [
 								{
 									"__identifier": "name",
@@ -676,15 +676,15 @@
 								},
 								{
 									"__identifier": "Path",
-									"__value": [ { "cx": 9, "cy": 7 }, { "cx": 13, "cy": 7 } ],
+									"__value": [ { "cx": 10, "cy": 7 }, { "cx": 14, "cy": 7 } ],
 									"__type": "Array<Point>",
 									"defUid": 33,
 									"realEditorValues": [ {
 										"id": "V_String",
-										"params": ["9,7"]
+										"params": ["10,7"]
 									}, {
 										"id": "V_String",
-										"params": ["13,7"]
+										"params": ["14,7"]
 									} ]
 								}
 							]
